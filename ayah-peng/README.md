@@ -1,6 +1,6 @@
 Quick analysis for the pcap
 
-```tshark -r ayah-peng.pcapng | awk '{print $6}' | sort | uniq -c | sort -n
+    tshark -r ayah-peng.pcapng | awk '{print $6}' | sort | uniq -c | sort -n
     4 HTTP
     6 TLSv1
    12 IGMPv3
