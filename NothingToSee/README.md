@@ -21,11 +21,12 @@ Remembered that "ntsh.py" python script have a DEBUG variable and we need to set
 Now we can edit gamelogic.py to show us more data.
 Edited code:
 
+```
 for i in range(75):
             vp = self.game_map[(pos_y + i)]
             vp = vp[pos_x:pos_x + 145]
             vk = self.d_keys[(pos_y + i)]
             vk = vk[pos_x:pos_x + 145]
-	    	    
+```    	    
 Save "gamelogic.py" and run "ntsh.py" script again. We can see the whole map and there is our flag ^^
 ![map](https://github.com/kaizensecurity/WGMY2019/blob/master/NothingToSee/output.png)
