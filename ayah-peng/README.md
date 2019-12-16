@@ -1,6 +1,6 @@
 Quick analysis for the pcap
 
-    tshark -r ayah-peng.pcapng | awk '{print $6}' | sort | uniq -c | sort -n
+  ```tshark -r ayah-peng.pcapng | awk '{print $6}' | sort | uniq -c | sort -n
     4 HTTP
     6 TLSv1
    12 IGMPv3
@@ -16,7 +16,8 @@ Quick analysis for the pcap
  1030 OpenVPN
  1148 TCP
  1362 ICMP
- 8009 UDP```
+ 8009 UDP
+ ```
 
 There are a lot of ICMP packets (could be using for transfering data)
 Filter ICMP packets only in wireshark.
@@ -25,4 +26,6 @@ Notice large data length in each ICMP packet -> notice each string in data (look
 PNG header bytes appeared, but it got repeated 3 times & i think other packets will be the same
 So just need to remove duplicate ones and append data will result in correct b64 -> decode b64 (python solve.py | base64 -d > flag.png) -> image containing QR code with password, after reading the QR will give us a path "/ctf-should-be-free-like-wgmy/flag.zip"
 ![QR](https://github.com/kaizensecurity/WGMY2019/blob/master/ayah-peng/QR.png)
-The hint said "old server" ..so a quick subdomains enumeration + appending the given path. Then only 1 result gave us the real zip (http://rahsia.wargames.my/). Unzipped with password and got the flag ;)
+
+The hint said "old server". So a quick subdomains enumeration + appending the given path.
+Then only 1 result gave us the real zip (http://rahsia.wargames.my/). Unzipped with password and got the flag ;)
